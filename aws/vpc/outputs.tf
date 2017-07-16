@@ -1,5 +1,5 @@
 output "private_subnets" {
-	value = "${data.aws_subnet_ids.private.ids}"
+	value = "${join(",",data.aws_subnet_ids.private.ids)}"
 }
 
 output "private_subnet_route_table" {
@@ -11,7 +11,7 @@ output "vpc" {
 }
 
 output "public_subnets" {
-	value = "${data.aws_subnet_ids.public.ids}"
+	value = "${join(",",data.aws_subnet_ids.public.ids)}"
 }
 
 output "public_subnet_route_table" {
