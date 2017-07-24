@@ -22,7 +22,7 @@ resource "null_resource" "create_zipfile" {
 
 resource "null_resource" "append_zipfile_0" {
 	provisioner "local-exec" {
-		command = "cd ${var.zip_file_folder}; export FZ=`pwd`; cd ${element(data.template_file.library_parent_folder.*.rendered, 0)}; zip -rg $FZ/${data.template_file.zip_name.rendered} ${element(data.template_file.library_folder.*.rendered, 0)}"
+		command = "if [ ${length(var.library_folders)} -gt 0 ]; then cd ${var.zip_file_folder}; export FZ=`pwd`; cd ${element(data.template_file.library_parent_folder.*.rendered, 0)}; zip -rg $FZ/${data.template_file.zip_name.rendered} ${element(data.template_file.library_folder.*.rendered, 0)}; fi"
 	}
 
 	triggers {
@@ -30,12 +30,11 @@ resource "null_resource" "append_zipfile_0" {
 	}
 
 	depends_on = [ "null_resource.create_zipfile"  ]
-	count = "${length(var.library_folders) > 0 ? 1 : 0}"
 }
 
 resource "null_resource" "append_zipfile_1" {
 	provisioner "local-exec" {
-		command = "cd ${var.zip_file_folder}; export FZ=`pwd`; cd ${element(data.template_file.library_parent_folder.*.rendered, 1)}; zip -rg $FZ/${data.template_file.zip_name.rendered} ${element(data.template_file.library_folder.*.rendered, 1)}"
+		command = "if [ ${length(var.library_folders)} -gt 1 ]; then cd ${var.zip_file_folder}; export FZ=`pwd`; cd ${element(data.template_file.library_parent_folder.*.rendered, 1)}; zip -rg $FZ/${data.template_file.zip_name.rendered} ${element(data.template_file.library_folder.*.rendered, 1)}; fi"
 	}
 
 	triggers {
@@ -43,12 +42,11 @@ resource "null_resource" "append_zipfile_1" {
 	}
 
 	depends_on = [ "null_resource.append_zipfile_0"  ]
-	count = "${length(var.library_folders) > 1 ? 1 : 0}"
 }
 
 resource "null_resource" "append_zipfile_2" {
 	provisioner "local-exec" {
-		command = "cd ${var.zip_file_folder}; export FZ=`pwd`; cd ${element(data.template_file.library_parent_folder.*.rendered, 2)}; zip -rg $FZ/${data.template_file.zip_name.rendered} ${element(data.template_file.library_folder.*.rendered, 2)}"
+		command = "if [ ${length(var.library_folders)} -gt 2 ]; then cd ${var.zip_file_folder}; export FZ=`pwd`; cd ${element(data.template_file.library_parent_folder.*.rendered, 2)}; zip -rg $FZ/${data.template_file.zip_name.rendered} ${element(data.template_file.library_folder.*.rendered, 2)}; fi"
 	}
 
 	triggers {
@@ -56,12 +54,11 @@ resource "null_resource" "append_zipfile_2" {
 	}
 
 	depends_on = [ "null_resource.append_zipfile_1"  ]
-	count = "${length(var.library_folders) > 2 ? 1 : 0}"
 }
 
 resource "null_resource" "append_zipfile_3" {
 	provisioner "local-exec" {
-		command = "cd ${var.zip_file_folder}; export FZ=`pwd`; cd ${element(data.template_file.library_parent_folder.*.rendered, 3)}; zip -rg $FZ/${data.template_file.zip_name.rendered} ${element(data.template_file.library_folder.*.rendered, 3)}"
+		command = "if [ ${length(var.library_folders)} -gt 3 ]; then cd ${var.zip_file_folder}; export FZ=`pwd`; cd ${element(data.template_file.library_parent_folder.*.rendered, 3)}; zip -rg $FZ/${data.template_file.zip_name.rendered} ${element(data.template_file.library_folder.*.rendered, 3)}; fi"
 	}
 
 	triggers {
@@ -69,12 +66,11 @@ resource "null_resource" "append_zipfile_3" {
 	}
 
 	depends_on = [ "null_resource.append_zipfile_2"  ]
-	count = "${length(var.library_folders) > 3 ? 1 : 0}"
 }
 
 resource "null_resource" "append_zipfile_4" {
 	provisioner "local-exec" {
-		command = "cd ${var.zip_file_folder}; export FZ=`pwd`; cd ${element(data.template_file.library_parent_folder.*.rendered, 4)}; zip -rg $FZ/${data.template_file.zip_name.rendered} ${element(data.template_file.library_folder.*.rendered, 4)}"
+		command = "if [ ${length(var.library_folders)} -gt 4 ]; then cd ${var.zip_file_folder}; export FZ=`pwd`; cd ${element(data.template_file.library_parent_folder.*.rendered, 4)}; zip -rg $FZ/${data.template_file.zip_name.rendered} ${element(data.template_file.library_folder.*.rendered, 4)}; fi"
 	}
 
 	triggers {
@@ -82,12 +78,11 @@ resource "null_resource" "append_zipfile_4" {
 	}
 
 	depends_on = [ "null_resource.append_zipfile_3"  ]
-	count = "${length(var.library_folders) > 4 ? 1 : 0}"
 }
 
 resource "null_resource" "append_zipfile_5" {
 	provisioner "local-exec" {
-		command = "cd ${var.zip_file_folder}; export FZ=`pwd`; cd ${element(data.template_file.library_parent_folder.*.rendered, 5)}; zip -rg $FZ/${data.template_file.zip_name.rendered} ${element(data.template_file.library_folder.*.rendered, 5)}"
+		command = "if [ ${length(var.library_folders)} -gt 5 ]; then cd ${var.zip_file_folder}; export FZ=`pwd`; cd ${element(data.template_file.library_parent_folder.*.rendered, 5)}; zip -rg $FZ/${data.template_file.zip_name.rendered} ${element(data.template_file.library_folder.*.rendered, 5)}; fi"
 	}
 
 	triggers {
@@ -95,12 +90,11 @@ resource "null_resource" "append_zipfile_5" {
 	}
 
 	depends_on = [ "null_resource.append_zipfile_4"  ]
-	count = "${length(var.library_folders) > 5 ? 1 : 0}"
 }
 
 resource "null_resource" "append_zipfile_6" {
 	provisioner "local-exec" {
-		command = "cd ${var.zip_file_folder}; export FZ=`pwd`; cd ${element(data.template_file.library_parent_folder.*.rendered, 6)}; zip -rg $FZ/${data.template_file.zip_name.rendered} ${element(data.template_file.library_folder.*.rendered, 6)}"
+		command = "if [ ${length(var.library_folders)} -gt 6 ]; then cd ${var.zip_file_folder}; export FZ=`pwd`; cd ${element(data.template_file.library_parent_folder.*.rendered, 6)}; zip -rg $FZ/${data.template_file.zip_name.rendered} ${element(data.template_file.library_folder.*.rendered, 6)}; fi"
 	}
 
 	triggers {
@@ -108,12 +102,11 @@ resource "null_resource" "append_zipfile_6" {
 	}
 
 	depends_on = [ "null_resource.append_zipfile_5"  ]
-	count = "${length(var.library_folders) > 6 ? 1 : 0}"
 }
 
 resource "null_resource" "append_zipfile_7" {
 	provisioner "local-exec" {
-		command = "cd ${var.zip_file_folder}; export FZ=`pwd`; cd ${element(data.template_file.library_parent_folder.*.rendered, 7)}; zip -rg $FZ/${data.template_file.zip_name.rendered} ${element(data.template_file.library_folder.*.rendered, 7)}"
+		command = "if [ ${length(var.library_folders)} -gt 7 ]; then cd ${var.zip_file_folder}; export FZ=`pwd`; cd ${element(data.template_file.library_parent_folder.*.rendered, 7)}; zip -rg $FZ/${data.template_file.zip_name.rendered} ${element(data.template_file.library_folder.*.rendered, 7)}; fi"
 	}
 
 	triggers {
@@ -121,12 +114,11 @@ resource "null_resource" "append_zipfile_7" {
 	}
 
 	depends_on = [ "null_resource.append_zipfile_6"  ]
-	count = "${length(var.library_folders) > 7 ? 1 : 0}"
 }
 
 resource "null_resource" "append_zipfile_8" {
 	provisioner "local-exec" {
-		command = "cd ${var.zip_file_folder}; export FZ=`pwd`; cd ${element(data.template_file.library_parent_folder.*.rendered, 8)}; zip -rg $FZ/${data.template_file.zip_name.rendered} ${element(data.template_file.library_folder.*.rendered, 8)}"
+		command = "if [ ${length(var.library_folders)} -gt 8 ]; then cd ${var.zip_file_folder}; export FZ=`pwd`; cd ${element(data.template_file.library_parent_folder.*.rendered, 8)}; zip -rg $FZ/${data.template_file.zip_name.rendered} ${element(data.template_file.library_folder.*.rendered, 8)}; fi"
 	}
 
 	triggers {
@@ -134,12 +126,11 @@ resource "null_resource" "append_zipfile_8" {
 	}
 
 	depends_on = [ "null_resource.append_zipfile_7"  ]
-	count = "${length(var.library_folders) > 8 ? 1 : 0}"
 }
 
 resource "null_resource" "append_zipfile_9" {
 	provisioner "local-exec" {
-		command = "cd ${var.zip_file_folder}; export FZ=`pwd`; cd ${element(data.template_file.library_parent_folder.*.rendered, 9)}; zip -rg $FZ/${data.template_file.zip_name.rendered} ${element(data.template_file.library_folder.*.rendered, 9)}"
+		command = "if [ ${length(var.library_folders)} -gt 9 ]; then cd ${var.zip_file_folder}; export FZ=`pwd`; cd ${element(data.template_file.library_parent_folder.*.rendered, 9)}; zip -rg $FZ/${data.template_file.zip_name.rendered} ${element(data.template_file.library_folder.*.rendered, 9)}; fi"
 	}
 
 	triggers {
@@ -147,6 +138,5 @@ resource "null_resource" "append_zipfile_9" {
 	}
 
 	depends_on = [ "null_resource.append_zipfile_8"  ]
-	count = "${length(var.library_folders) > 9 ? 1 : 0}"
 }
 
